@@ -1,0 +1,1045 @@
+Screen_Manager:
+    HomeScreen:
+
+<HomeScreen>:
+    MDFloatLayout:
+        id: Home_Screen
+        md_bg_color: 26/255, 36/255, 45/255
+        Label:
+            text: "Blaze Demo"
+            font_name: 'Roboto-Bold'
+            font_size: 45
+            pos_hint: {"center_x": .5, "center_y": .87}
+
+        Image:
+            source: "assets/blaze.png"
+            size_hint: .2, .2
+            pos_hint: {"center_x": .5, "center_y": .7}
+
+        MDRaisedButton:
+            padding: 100, 15, 100, 15
+            text: "Crash"
+            md_bg_color: 241/255, 44/255, 76/255
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: 25
+            font_name: 'Roboto-Bold'
+            on_release:
+                root.CrashScreen()
+
+        MDRaisedButton:
+            padding: 92, 15, 92, 15
+            text: "Double"
+            md_bg_color: 241/255, 44/255, 76/255
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .35}
+            font_size: 25
+            font_name: 'Roboto-Bold'
+            on_release:
+                root.DoubleScreen()
+
+        MDRaisedButton:
+            padding: 20, 15, 20, 15
+            text: "Ajude o projeto aqui"
+            md_bg_color: 241/255, 44/255, 76/255
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .2}
+            font_size: 25
+            font_name: 'Roboto-Bold'
+            on_release:
+                root.contribuicao()
+
+        MDFloatLayout:
+            Label:
+                text: "Created by"
+                font_size: 20
+                font_name: 'Roboto-Bold'
+                pos_hint: {"center_x": .5, "center_y": .12}
+
+            MDFlatButton:
+                text: "@s.soares_marcelo"
+                theme_text_color: "Custom"
+                text_color: 241/255, 44/255, 76/255
+                font_size: 20
+                font_name: 'Roboto-Bold'
+                pos_hint: {"center_x": .5, "center_y": .08}
+                on_release:
+                    root.instagram()
+
+            MDIconButton:
+                icon: "information"
+                pos_hint: {"center_x": .88, "center_y": .08}
+                icon_size: 50
+                theme_icon_color: "Custom"
+                icon_color: 241/255, 44/255, 76/255
+                on_release:
+                    root.info()
+
+    MDFloatLayout:
+        id: Crash_Screen
+        md_bg_color: 26/255, 36/255, 45/255
+        pos_hint: {"center_y": 10}
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .05, "center_y": .95}
+            theme_icon_color: "Custom"
+            icon_color: 241/255, 44/255, 76/255
+            on_release:
+                root.HomeScreen()
+
+        MDFloatLayout:
+            id: parte_banca
+            pos_hint: {"center_x": .5, "center_y": .9}
+            radius: [10, ]
+            md_bg_color: 255/255, 255/255, 255/255
+            size_hint: None, None
+            size: 155, 50
+            MDBoxLayout:
+                radius: [10, ]
+                md_bg_color: 26/255, 36/255, 45/255
+                size_hint: .99, .975
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Label:
+                    text: "R$"
+                    font_name: 'Roboto-Bold'
+                Label:
+                    id: banca_crash
+                    text: "40.00"
+                    font_name: 'Roboto-Bold'
+                Image:
+                    source: "assets/BRL.png"
+                    pos_hint: {"center_x": 1, "center_y": .5}
+            MDRaisedButton:
+                size_hint: 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0, 0, 0, 0
+                elevation: 0
+                shadow_offset: 0, 10000
+                on_release:
+                    root.dialog_mudar_banca()
+
+        Image:
+            source: "assets/blaze.png"
+            size_hint: .2, .2
+            pos_hint: {"center_x": .5, "center_y": .7}
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: None, None
+            size: 450, 100
+            MDBoxLayout:
+                size_hint: None, None
+                size: 150, 68
+                pos_hint: {"center_x": .3, "center_y": .5}
+                md_bg_color: 15/255, 25/255, 35/255
+                radius: [10, ]
+                MDTextField:
+                    id: quantia_crash
+                    hint_text: "Quantia"
+                    mode: "rectangle"
+                    line_color_focus: 1, 1, 1, 0
+                    line_color_normal: 1, 1, 1, 0
+                    text_color_normal: "white"
+                    text_color_focus: "white"
+                    hint_text_color_focus: "white"
+                    hint_text_color_normal: "white"
+                    size_hint: .9, .9
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .6, "center_y": .5}
+                radius: [5, ]
+                md_bg_color: 255/255, 255/255, 255/255
+                size_hint: None, None
+                size: 70, 55
+                MDBoxLayout:
+                    radius: [5, ]
+                    md_bg_color: 26/255, 36/255, 45/255
+                    size_hint: .98, .975
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    MDFlatButton:
+                        text: "½"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        font_size: 30
+                        size_hint: None, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint: 1, 1
+                        font_name: 'Roboto-Bold'
+                        on_release:
+                            root.diminuir_bet_crash()
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .8, "center_y": .5}
+                radius: [5, ]
+                md_bg_color: 255/255, 255/255, 255/255
+                size_hint: None, None
+                size: 70, 55
+                MDBoxLayout:
+                    radius: [5, ]
+                    md_bg_color: 26/255, 36/255, 45/255
+                    size_hint: .98, .975
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    MDFlatButton:
+                        text: "2x"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        font_size: 20
+                        size_hint: None, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint: 1, 1
+                        font_name: 'Roboto-Bold'
+                        on_release:
+                            root.dobrar_bet_crash()
+
+        MDBoxLayout:
+            size_hint: None, None
+            size: 325, 68
+            pos_hint: {"center_x": .5, "center_y": .35}
+            md_bg_color: 15/255, 25/255, 35/255
+            radius: [10, ]
+            MDTextField:
+                id: txt_retirar
+                hint_text: "Auto Retirar"
+                mode: "rectangle"
+                line_color_focus: 1, 1, 1, 0
+                line_color_normal: 1, 1, 1, 0
+                text_color_normal: "white"
+                text_color_focus: "white"
+                hint_text_color_focus: "white"
+                hint_text_color_normal: "white"
+                size_hint: .9, .9
+
+        MDRaisedButton:
+            id: bt_comecar_crash
+            padding: 90, 15, 90, 15
+            text: "Começar o jogo"
+            md_bg_color: 150/255, 20/255, 50/255
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .2}
+            font_size: 20
+            font_name: 'Roboto-Bold'
+            on_release:
+                root.bet_crash()
+
+        MDProgressBar:
+            id: barra_progresso_crash
+            pos_hint: {"center_x": .5, "center_y": .12}
+            color: 7/255, 27/255, 36/255, 0
+            size_hint: None, None
+            size: 400, 20
+            reversed: True
+            back_color: 7/255, 27/255, 36/255, 0
+
+        Label:
+            id: subindo
+            text: "Subindo..."
+            font_name: 'Roboto-Bold'
+            font_size: 20
+            pos_hint: {"center_x": .5, "center_y": .12}
+            color: 187/255, 190/255, 198/255, 1
+
+        MDBoxLayout:
+            padding: 10
+            size_hint: None, None
+            size: 440, 60
+            pos_hint: { "center_y": .04}
+            pos_hint_x: "right"
+            spacing: 10
+
+            MDBoxLayout:
+                id: vv1
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v1
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv2
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v2
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv3
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v3
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv4
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v4
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv5
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v5
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv6
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v6
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv7
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v7
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv8
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v8
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv9
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v9
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv10
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v10
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv11
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v11
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv12
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v12
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv13
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v13
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv14
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v14
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+            MDBoxLayout:
+                id: vv15
+                radius: [5, ]
+                size_hint: None, None
+                size: 50, 35
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0/255, 150/255, 0/255, 0
+                Label:
+                    id: v15
+                    font_size: 13
+                    font_name: 'Roboto-Bold'
+
+    MDFloatLayout:
+        id: Double_Screen
+        md_bg_color: 26/255, 36/255, 45/255
+        pos_hint: {"center_y": 10}
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .05, "center_y": .95}
+            theme_icon_color: "Custom"
+            icon_color: 241/255, 44/255, 76/255
+            on_release:
+                root.HomeScreen()
+
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "center_y": .9}
+            radius: [10, ]
+            md_bg_color: 255/255, 255/255, 255/255
+            size_hint: None, None
+            size: 155, 50
+            MDBoxLayout:
+                radius: [10, ]
+                md_bg_color: 26/255, 36/255, 45/255
+                size_hint: .99, .975
+                pos_hint: {"center_x": .5, "center_y": .5}
+                Label:
+                    text: "R$"
+                    font_name: 'Roboto-Bold'
+                Label:
+                    id: banca_double
+                    text: "40.00"
+                    font_name: 'Roboto-Bold'
+                Image:
+                    source: "assets/BRL.png"
+                    pos_hint: {"center_x": 1, "center_y": .5}
+            MDRaisedButton:
+                size_hint: 1, 1
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 0, 0, 0, 0
+                elevation: 0
+                shadow_offset: 0, 10000
+                on_release:
+                    root.dialog_mudar_banca()
+
+        Image:
+            source: "assets/blaze.png"
+            size_hint: .2, .2
+            pos_hint: {"center_x": .5, "center_y": .7}
+
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "center_y": .5}
+            size_hint: None, None
+            size: 450, 100
+            MDBoxLayout:
+                size_hint: None, None
+                size: 150, 68
+                pos_hint: {"center_x": .3, "center_y": .5}
+                md_bg_color: 15/255, 25/255, 35/255
+                radius: [10, ]
+                MDTextField:
+                    id: txt_quantia_double
+                    hint_text: "Quantia"
+                    mode: "rectangle"
+                    line_color_focus: 1, 1, 1, 0
+                    line_color_normal: 1, 1, 1, 0
+                    text_color_normal: "white"
+                    text_color_focus: "white"
+                    hint_text_color_focus: "white"
+                    hint_text_color_normal: "white"
+                    size_hint: .9, .9
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .6, "center_y": .5}
+                radius: [5, ]
+                md_bg_color: 255/255, 255/255, 255/255
+                size_hint: None, None
+                size: 70, 55
+                MDBoxLayout:
+                    radius: [5, ]
+                    md_bg_color: 26/255, 36/255, 45/255
+                    size_hint: .98, .975
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    MDFlatButton:
+                        text: "½"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        font_size: 30
+                        size_hint: None, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint: 1, 1
+                        font_name: 'Roboto-Bold'
+                        on_release:
+                            root.diminuir_bet_double()
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .8, "center_y": .5}
+                radius: [5, ]
+                md_bg_color: 255/255, 255/255, 255/255
+                size_hint: None, None
+                size: 70, 55
+                MDBoxLayout:
+                    radius: [5, ]
+                    md_bg_color: 26/255, 36/255, 45/255
+                    size_hint: .98, .975
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    MDFlatButton:
+                        text: "2x"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        font_size: 20
+                        size_hint: None, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint: 1, 1
+                        font_name: 'Roboto-Bold'
+                        on_release:
+                            root.dobrar_bet_double()
+
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "center_y": .35}
+            size_hint: None, None
+            size: 450, 130
+            padding: 10
+            Label
+                color: 188/255, 184/255, 179/255
+                text: "Selecionar Cor:"
+                font_size: 15
+                font_name: 'Roboto-Bold'
+                pos_hint: {"center_x": .26, "center_y": .75}
+            MDRaisedButton:
+                id: bt_vermelho
+                padding: 35, 15
+                text: "2x"
+                md_bg_color: 241/255, 44/255, 76/255
+                size_hint: None, None
+                pos_hint: {"center_x": .25, "center_y": .37}
+                font_size: 20
+                font_name: 'Roboto-Bold'
+                on_release:
+                    root.select_cor_double("vermelho")
+
+            MDRaisedButton:
+                id: bt_branco
+                padding: 35, 15
+                text: "14x"
+                md_bg_color: 255/255, 255/255, 255/255
+                size_hint: None, None
+                pos_hint: {"center_x": .5, "center_y": .37}
+                font_size: 20
+                font_name: 'Roboto-Bold'
+                text_color: 241/255, 44/255, 76/255
+                on_release:
+                    root.select_cor_double("branco")
+
+            MDRaisedButton:
+                id: bt_preto
+                padding: 35, 15
+                text: "2x"
+                md_bg_color: 52/255, 59/255, 74/255
+                size_hint: None, None
+                pos_hint: {"center_x": .75, "center_y": .37}
+                font_size: 20
+                font_name: 'Roboto-Bold'
+                on_release:
+                    root.select_cor_double("preto")
+
+        MDRaisedButton:
+            id: bt_comecar_double
+            padding: 90, 15, 90, 15
+            text: "Começar o jogo"
+            md_bg_color: 150/255, 20/255, 50/255
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .2}
+            font_size: 20
+            font_name: 'Roboto-Bold'
+            on_release:
+                root.bet_double()
+
+        MDProgressBar:
+            id: barra_progresso_double
+            pos_hint: {"center_x": .5, "center_y": .12}
+            color: 7/255, 27/255, 36/255, 0
+            size_hint: None, None
+            size: 400, 20
+            reversed: True
+            back_color: 7/255, 27/255, 36/255, 0
+
+        Label:
+            id: girando
+            text: "Girando..."
+            font_name: 'Roboto-Bold'
+            font_size: 20
+            pos_hint: {"center_x": .5, "center_y": .12}
+            color: 187/255, 190/255, 198/255, 1
+
+
+        MDBoxLayout:
+            padding: 10
+            size_hint: None, None
+            size: 440, 60
+            pos_hint: { "center_y": .04}
+            pos_hint_x: "right"
+            spacing: 10
+
+            MDFloatLayout:
+                id: fc1
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc1
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc1.md_bg_color
+                        Label:
+                            id: c1
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc1.md_bg_color
+
+            MDFloatLayout:
+                id: fc2
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc2
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc2.md_bg_color
+                        Label:
+                            id: c2
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc2.md_bg_color
+
+            MDFloatLayout:
+                id: fc3
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc3
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc3.md_bg_color
+                        Label:
+                            id: c3
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc3.md_bg_color
+
+            MDFloatLayout:
+                id: fc4
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc4
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc4.md_bg_color
+                        Label:
+                            id: c4
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc4.md_bg_color
+
+            MDFloatLayout:
+                id: fc5
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc5
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc5.md_bg_color
+                        Label:
+                            id: c5
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc5.md_bg_color
+
+            MDFloatLayout:
+                id: fc6
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc6
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc6.md_bg_color
+                        Label:
+                            id: c6
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc6.md_bg_color
+
+            MDFloatLayout:
+                id: fc7
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc7
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc7.md_bg_color
+                        Label:
+                            id: c7
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc7.md_bg_color
+
+            MDFloatLayout:
+                id: fc8
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc8
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc8.md_bg_color
+                        Label:
+                            id: c8
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc8.md_bg_color
+
+            MDFloatLayout:
+                id: fc9
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc9
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc9.md_bg_color
+                        Label:
+                            id: c9
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc9.md_bg_color
+
+            MDFloatLayout:
+                id: fc10
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc10
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc10.md_bg_color
+                        Label:
+                            id: c10
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc10.md_bg_color
+
+            MDFloatLayout:
+                id: fc11
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc11
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc11.md_bg_color
+                        Label:
+                            id: c11
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc11.md_bg_color
+
+            MDFloatLayout:
+                id: fc12
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc12
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc12.md_bg_color
+                        Label:
+                            id: c12
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc12.md_bg_color
+
+            MDFloatLayout:
+                id: fc13
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc13
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc13.md_bg_color
+                        Label:
+                            id: c13
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc13.md_bg_color
+
+            MDFloatLayout:
+                id: fc14
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc14
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc14.md_bg_color
+                        Label:
+                            id: c14
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc14.md_bg_color
+
+            MDFloatLayout:
+                id: fc15
+                radius: [5, ]
+                size_hint: None, None
+                size: 45, 45
+                pos_hint: {"center_x": .5, "center_y": .5}
+                md_bg_color: 241/255, 44/255, 76/255, 0
+                MDFloatLayout:
+                    id: cc15
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: .9, .9
+                    md_bg_color: 140/255, 16/255, 37/255, 0
+                    radius: [50, ]
+                    MDBoxLayout:
+                        size_hint: .8, .8
+                        radius: [50, ]
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        md_bg_color: fc15.md_bg_color
+                        Label:
+                            id: c15
+                            font_size: 20
+                            font_name: 'Roboto-Bold'
+                            color: cc15.md_bg_color
+
+    MDFloatLayout:
+        id: info
+        pos_hint: {"center_y": 10}
+        size_hint: None, None
+        size: 420,700
+        md_bg_color: 26/255, 36/255, 45/255
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .05, "center_y": .92}
+            theme_icon_color: "Custom"
+            icon_color: 241/255, 44/255, 76/255
+            on_release:
+                root.HomeScreen()
+
+        Label:
+            text: "Informações"
+            font_name: 'Roboto-Bold'
+            font_size: 35
+            pos_hint: {"center_x": .5, "center_y": .8}
+
+        Label:
+            text: 'Este é um projeto em Python criado com o objetivo de estudo\n e aprendizagem, mas também pode ser usado para diversão. \nEle foi inspirado em uma plataforma de jogo que só permite jogar \ncom dinheiro real. \n\nO software criado não requer nenhum depósito para ser utilizado \ne seu objetivo é proporcionar diversão sem gastar dinheiro.\n No entanto, é importante destacar que não se incentiva nem se \ncompactua com apostas, já que o jogo em excesso pode trazer\n prejuízos à vida pessoal e financeira. \n\nSe você tem problemas relacionados a jogos de azar e apostas, \né recomendável procurar ajuda de um especialista antes de usar \neste software, pois ele pode aumentar a vontade de jogar \ncom dinheiro real e levar a consequências graves.\n "Cuidado é sempre a palavra-chave."'
+            font_size: 13
+            pos_hint: {"center_x": .5, "center_y": .47}
+            halign: "center"
+
+        MDFloatLayout:
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDRectangleFlatIconButton:
+                icon: "instagram"
+                text: "@s.soares_marcelo"
+                font_name: 'Roboto-Bold'
+                font_size: 20
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0, 0, 0, 0
+                theme_icon_color: "Custom"
+                icon_color: 241/255, 44/255, 76/255
+                pos_hint: {"center_x": 0.5, "center_y": .13}
+                on_release:
+                    root.instagram()
+
+            MDRectangleFlatIconButton:
+                icon: "linkedin"
+                text: "@marcelo-soares-codes"
+                font_name: 'Roboto-Bold'
+                font_size: 20
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0, 0, 0, 0
+                theme_icon_color: "Custom"
+                icon_color: 241/255, 44/255, 76/255
+                pos_hint: {"center_x": 0.5, "center_y": .07}
+                on_release:
+                    root.linkedin()
+
+
